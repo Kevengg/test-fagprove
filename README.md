@@ -4,9 +4,9 @@
 
 ## oppgavetekst
 
-    Basert på det du har lært og jobbet med på lærestedet ditt, skal du nå planlegge, gjennomføre, dokumentere og vurdere et praktisk arbeid. Oppgaven din skal ta utgangspunkt i normale oppgaver du utfører på lærestedet og du skal starte med å beskrive de oppgavene du har valgt. Drøft gjerne hvilke oppgaver du velger å beskrive med din faglige leder. Du skal starte med å lage en beskrivelse av oppgaven.
-    Eksempler på hva du kan velge er Frontend løsning, Backend løsning, Database eller et annet område du har arbeidet med som læring i din virksomhet. Det er meget viktig at oppgavene du velger må dekke kompetansemålene i lærerplanen. Denne planen har du tilgjengelig på ditt lærested, men den er også vedlagt på slutten av dette dokumentet. Besvarelsen skal dekke alle kompetansemål fra læreplanen.
-    Husk at du skal kunne gjennomføre det du velger på fem arbeidsdager. Det er derfor viktig at du avgrenser omfanget slik at du blir ferdig i tide. Drøft gjerne dette med din faglige leder, slik at oppgavene oppgavens omfang er i henhold til tidsbruken.
+> Basert på det du har lært og jobbet med på lærestedet ditt, skal du nå planlegge, gjennomføre, dokumentere og vurdere et praktisk arbeid. Oppgaven din skal ta utgangspunkt i normale oppgaver du utfører på lærestedet og du skal starte med å beskrive de oppgavene du har valgt. Drøft gjerne hvilke oppgaver du velger å beskrive med din faglige leder. Du skal starte med å lage en beskrivelse av oppgaven.
+> Eksempler på hva du kan velge er Frontend løsning, Backend løsning, Database eller et annet område du har arbeidet med som læring i din virksomhet. Det er meget viktig at oppgavene du velger må dekke kompetansemålene i lærerplanen. Denne planen har du tilgjengelig på ditt lærested, men den er også vedlagt på slutten av dette dokumentet. Besvarelsen skal dekke alle kompetansemål fra læreplanen.
+> Husk at du skal kunne gjennomføre det du velger på fem arbeidsdager. Det er derfor viktig at du avgrenser omfanget slik at du blir ferdig i tide. Drøft gjerne dette med din faglige leder, slik at oppgavene oppgavens omfang er i henhold til tidsbruken.
 
 ## løsning
 
