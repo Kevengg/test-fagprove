@@ -109,4 +109,5 @@ Hvis ikke applikasjonen kjører, sjekk at porten er ledig og at ingen andre pros
 -   Run `npm run start`
 
 The application will now run on [http://localhost:3001](http://localhost:3001)
-to change the port, change the `APP_PORT` variable in the `.env` file.
+<br>
+To change the port, change the `APP_PORT` variable in the `.env` file.
