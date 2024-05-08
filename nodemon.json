@@ -1,5 +1,5 @@
 {
-    "exec": "ts-node src/serve.ts",
+    "exec": "ts-node ./tests/dynamicTester.ts && ts-node src/serve.ts",
     "watch": ["src"],
     "ignore": ["src/swagger.json", "src/routes.ts"],
     "ext": "ts"
