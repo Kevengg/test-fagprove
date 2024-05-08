@@ -1,5 +1,5 @@
 type TimeUnit = "Day" | "Month" | "Year";
-type ProductType = "Spot" | "HourlySpot" | "Fixed" | "Variabl" | "Purchase" | "Plus" | "Other";
+type ProductType = "Spot" | "HourlySpot" | "Fixed" | "Variabel" | "Purchase" | "Plus" | "Other";
 type BillingType = "Before" | "After" | "Period";
 type FeeMandatoryType = "None" | "ElectronicInvoice" | "DirectDebit" | "Both";
 type CustomerType =
