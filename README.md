@@ -43,6 +43,10 @@ Jeg skall lage en simplifisert versjon av den nye backenden til Forbrukerrådets
 -   [TSOA](https://tsoa-community.github.io/docs/)
 -   [webpack](https://webpack.js.org)
 
+-   [jest](https://jestjs.io) - `Testing framework`
+-   [supertest](https://www.npmjs.com/package/supertest) - `dependency for testing express.js`
+-   [ts-jest](https://kulshekhar.github.io/ts-jest/) - `TypeScript preprocessor for Jest`
+
 ### FORUTSETNINGER
 
 Siden løsningen er en NODE applikasjon, er det forventet at du har node installert på maskinen din. For å installere node, gå til [nodejs.org](https://nodejs.org/en) og last ned den nyeste versjonen. For å sjekke om node er installert, skriv `node -v` i terminalen. Hvis du får en versjon tilbake, er node installert. Hvis ikke, må du installere node.
