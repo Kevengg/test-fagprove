@@ -5,7 +5,7 @@ import { Controller, Get, Route } from "tsoa";
  * @property {string} ping - enum:pong
  */
 @Route("ping")
-export class PingControler extends Controller {
+export class PingController extends Controller {
     /**
      * GET /ping
      * @tags Miscellaneous
