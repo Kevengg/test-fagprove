@@ -1,7 +1,12 @@
 #!/bin/bash
 
+
+# This script will reset the database and run the tests.
+# It will ask for confirmation before resetting the database.
+
 while true; do
-    read -p "Do you want to continue? (Y/N): " choice
+echo "This script will reset the database."
+    read -p "Are you shure you want to continue? (Y/N): " choice
     case $choice in
         [Yy])
             echo "reseting database and running tests..."
