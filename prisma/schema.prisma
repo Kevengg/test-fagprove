@@ -31,7 +31,7 @@ enum ProductType {
   Spot
   HourlySpot
   Fixed
-  Variabl
+  Variabel
   Purchase
   Plus
   Other
