@@ -4,13 +4,13 @@
 
 ## oppgavetekst
 
-> Basert på det du har lært og jobbet med på lærestedet ditt, skal du nå planlegge, gjennomføre, dokumentere og vurdere et praktisk arbeid. Oppgaven din skal ta utgangspunkt i normale oppgaver du utfører på lærestedet og du skal starte med å beskrive de oppgavene du har valgt. Drøft gjerne hvilke oppgaver du velger å beskrive med din faglige leder. Du skal starte med å lage en beskrivelse av oppgaven.
-> Eksempler på hva du kan velge er Frontend løsning, Backend løsning, Database eller et annet område du har arbeidet med som læring i din virksomhet. Det er meget viktig at oppgavene du velger må dekke kompetansemålene i lærerplanen. Denne planen har du tilgjengelig på ditt lærested, men den er også vedlagt på slutten av dette dokumentet. Besvarelsen skal dekke alle kompetansemål fra læreplanen.
-> Husk at du skal kunne gjennomføre det du velger på fem arbeidsdager. Det er derfor viktig at du avgrenser omfanget slik at du blir ferdig i tide. Drøft gjerne dette med din faglige leder, slik at oppgavene oppgavens omfang er i henhold til tidsbruken.
+Basert på det du har lært og jobbet med på lærestedet ditt, skal du nå planlegge, gjennomføre, dokumentere og vurdere et praktisk arbeid. Oppgaven din skal ta utgangspunkt i normale oppgaver du utfører på lærestedet og du skal starte med å beskrive de oppgavene du har valgt. Drøft gjerne hvilke oppgaver du velger å beskrive med din faglige leder. Du skal starte med å lage en beskrivelse av oppgaven.
+Eksempler på hva du kan velge er Frontend løsning, Backend løsning, Database eller et annet område du har arbeidet med som læring i din virksomhet. Det er meget viktig at oppgavene du velger må dekke kompetansemålene i lærerplanen. Denne planen har du tilgjengelig på ditt lærested, men den er også vedlagt på slutten av dette dokumentet. Besvarelsen skal dekke alle kompetansemål fra læreplanen.
+Husk at du skal kunne gjennomføre det du velger på fem arbeidsdager. Det er derfor viktig at du avgrenser omfanget slik at du blir ferdig i tide. Drøft gjerne dette med din faglige leder, slik at oppgavene oppgavens omfang er i henhold til tidsbruken.
 
 ## løsning
 
-> Jeg skall lage en simplifisert versjon av den nye backenden til Forbrukerrådets tjeneste Strømpris. Under er nødvendige deler for denne løsningen. Løsningen skal være en backend for en tjeneste som skal håndtere produkter og bedrifter. og et api for å hente, opprette, endre og slette disse. det skal også være relasjoner mellom produkter og bedrifter. Applikasjonen skal bruke Prisma som database manager og Express som webserver. den skal også bruke express-jsdoc-swagger for å generere api dokumentasjon. Løsningen skal også ha en versjonskontroll og endringlogg for produkter. Det er også ønskelig med tilgangstyring og automatisk testing av api.
+Jeg skall lage en simplifisert versjon av den nye backenden til Forbrukerrådets tjeneste Strømpris. Under er nødvendige deler for denne løsningen. Løsningen skal være en backend for en tjeneste som skal håndtere produkter og bedrifter. og et api for å hente, opprette, endre og slette disse. det skal også være relasjoner mellom produkter og bedrifter. Applikasjonen skal bruke Prisma som database manager og Express som webserver. den skal også bruke express-jsdoc-swagger for å generere api dokumentasjon. Løsningen skal også ha en versjonskontroll og endringlogg for produkter. Det er også ønskelig med tilgangstyring og automatisk testing av api.
 
 ### krav spesifikasjoner
 
@@ -45,9 +45,9 @@
 
 ### FORUTSETNINGER
 
-> Siden løsningen er en NODE applikasjon, er det forventet at du har node installert på maskinen din. For å installere node, gå til [nodejs.org](https://nodejs.org/en) og last ned den nyeste versjonen. For å sjekke om node er installert, skriv `node -v` i terminalen. Hvis du får en versjon tilbake, er node installert. Hvis ikke, må du installere node.
+Siden løsningen er en NODE applikasjon, er det forventet at du har node installert på maskinen din. For å installere node, gå til [nodejs.org](https://nodejs.org/en) og last ned den nyeste versjonen. For å sjekke om node er installert, skriv `node -v` i terminalen. Hvis du får en versjon tilbake, er node installert. Hvis ikke, må du installere node.
 
-> I tillegg trenger du Docker for å kjøre databasen. For å installere Docker, gå til [docker.com](https://www.docker.com/products/docker-desktop) og last ned den nyeste versjonen. For å sjekke om Docker er installert, skriv `docker -v` i terminalen. Hvis du får en versjon tilbake, er Docker installert. Hvis ikke, må du installere Docker.
+I tillegg trenger du Docker for å kjøre databasen. For å installere Docker, gå til [docker.com](https://www.docker.com/products/docker-desktop) og last ned den nyeste versjonen. For å sjekke om Docker er installert, skriv `docker -v` i terminalen. Hvis du får en versjon tilbake, er Docker installert. Hvis ikke, må du installere Docker.
 
 ### Installasjon
 
