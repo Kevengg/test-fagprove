@@ -23,7 +23,7 @@ const dynamicCompaniesTest = async () => {
             createdAt: c.createdAt.toISOString(),
         }));
     };
-
+    //
     await request(app)
         .get("/companies")
         .expect(200)
