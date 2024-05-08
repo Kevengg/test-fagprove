@@ -17,9 +17,10 @@ const productData = [
 const productSeeder = async (prismaClient: PrismaClient) => {
     // starts a new DB transaction
     prismaClient.$transaction((tx) =>
-        // creates a new database entery for eatch product in productData
+        // creates a new database entry for each product in productData
         tx.product.createMany({ data: productData, skipDuplicates: true })
     );
+    // run productVersionSeeder for each product in productData
     productData.forEach(async (element) => {
         await productVersionSeeder(element.id, prismaClient);
     });
