@@ -62,7 +62,7 @@ npm install
 2. Start databasen
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 3. Opprett databasen
@@ -102,9 +102,8 @@ Hvis ikke applikasjonen kjører, sjekk at porten er ledig og at ingen andre pros
 
 ### Installation
 
--   Clone the repository
 -   Run `npm install`
--   Run `docker-compose up -d`
+-   Run `docker compose up -d`
 -   Run `npx prisma db push`
 -   Run `npm run build`
 -   Run `npm run start`
