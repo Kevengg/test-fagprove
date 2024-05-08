@@ -1,6 +1,9 @@
 # løsning opg 2 - hovedoppgaven
 
 > Av Kevin Andre Engell
+<br>
+
+> Arkivert pga. slutt på oppgaven 
 
 ## oppgavetekst
 
@@ -104,6 +107,9 @@ Hvis ikke applikasjonen kjører, sjekk at porten er ledig og at ingen andre pros
 ## FOR ENGLISH READERS
 
 > Do to the nature of the assignment, the README is in norwegian. if you have any questions, feel free to ask. The code itself is in english however.
+<br>
+
+> Archived do to end of assignment
 
 ### PRE-REQUISITES
 
