@@ -42,3 +42,72 @@
 -   [express](https://expressjs.com/)
 -   [TSOA](https://tsoa-community.github.io/docs/)
 -   [webpack](https://webpack.js.org)
+
+### FORUTSETNINGER
+
+> Siden løsningen er en NODE applikasjon, er det forventet at du har node installert på maskinen din. For å installere node, gå til [nodejs.org](https://nodejs.org/en) og last ned den nyeste versjonen. For å sjekke om node er installert, skriv `node -v` i terminalen. Hvis du får en versjon tilbake, er node installert. Hvis ikke, må du installere node.
+
+> I tillegg trenger du Docker for å kjøre databasen. For å installere Docker, gå til [docker.com](https://www.docker.com/products/docker-desktop) og last ned den nyeste versjonen. For å sjekke om Docker er installert, skriv `docker -v` i terminalen. Hvis du får en versjon tilbake, er Docker installert. Hvis ikke, må du installere Docker.
+
+### Installasjon
+
+> For å installere løsningen, følg stegene under:
+
+1. installer NODE modulene
+
+```bash
+npm install
+```
+
+2. Start databasen
+
+```bash
+docker-compose up -d
+```
+
+3. Opprett databasen
+
+```bash
+npx prisma db push
+```
+
+4. Bygg løsningen
+
+```bash
+npm run build
+```
+
+5. Kjør løsningen
+
+```bash
+npm run start
+```
+
+Applikasjonen vil nå kjøre på [http://localhost:3001](http://localhost:3001)
+
+Hvis ikke applikasjonen kjører, sjekk at porten er ledig og at ingen andre prosesser bruker porten. Hvis det er tilfelle, endre porten i `.env` filen. Dette gjøres ved å endre `APP_PORT` variabelen.
+
+---
+
+---
+
+## FOR ENGLISH READERS
+
+> Do to the nature of the assignment, the README is in norwegian. if you have any questions, feel free to ask. The code itself is in english however.
+
+### PRE-REQUISITES
+
+-   Node.js
+-   Docker
+
+### Installation
+
+-   Clone the repository
+-   Run `npm install`
+-   Run `docker-compose up -d`
+-   Run `npx prisma db push`
+-   Run `npm run build`
+-   Run `npm run start`
+
+The application will now run on [http://localhost:3001](http://localhost:3001)
+to change the port, change the `APP_PORT` variable in the `.env` file.
