@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+mysql -u root -p$MYSQL_ROOT_PASSWORD <<-EOSQL
+    CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;
+    CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE_TEST;
+
+  -- Give required permissions to db user
+    GRANT ALL PRIVILEGES ON *.* TO $MYSQL_USER
+EOSQL

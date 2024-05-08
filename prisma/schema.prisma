@@ -1,0 +1,138 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id        Int       @id @default(autoincrement())
+  name      String
+  number    Int       @unique()
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+  products  Product[]
+}
+
+enum TimeUnit {
+  Day
+  Month
+  Year
+}
+
+// the type of a product
+enum ProductType {
+  Spot
+  HourlySpot
+  Fixed
+  Variabl
+  Purchase
+  Plus
+  Other
+}
+
+// when is the user billed
+enum BillingType {
+  Before
+  After
+  Period
+}
+
+// ho is able to by the product
+enum CustomerType {
+  Everyone
+  New
+  Existing
+  ExistingWithMembership
+  NewWithMembership
+  WithMembership
+  ExistingAndNew
+  ExistingAndNewWithMembership
+}
+
+// Channel used to alert the end user when there has been changes to a product
+enum AlertChannel {
+  Email
+  Sms
+  PostalLetter
+  Website
+  MyPage
+  Phone
+}
+
+// the type of pricing used for the product
+enum PricingType {
+  Kilowatt
+  Spot
+  Arrears
+  OnRequest
+}
+
+// the current status of a product
+enum PublishingStatus {
+  Approved
+  Published
+  Rejected
+  Draft
+  Pending
+}
+
+// a product
+model Product {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+  name      String
+
+  productVersions ProductVersion[]
+  company         Company          @relation(fields: [companyId], references: [id])
+  companyId       Int
+}
+
+enum FeeMandatoryType {
+  None
+  ElectronicInvoice
+  DirectDebit
+  Both
+}
+
+// a version of a product
+model ProductVersion {
+  id                            Int              @id @default(autoincrement())
+  createdAt                     DateTime         @default(now())
+  agreementTime                 Int
+  agreementTimeUnit             TimeUnit
+  billingFrequency              Int
+  billingFrequencyUnit          TimeUnit
+  addonPriceMinimumFixedFor     Int
+  addonPriceMinimumFixedForUnit TimeUnit
+  productType                   ProductType
+  billingType                   BillingType
+  monthlyFee                    Int
+  addonPrice                    Int
+  elCertificatePrice            Int
+  maxKwhPerYear                 Int
+  feeMandatoryType              FeeMandatoryType
+  feePostalLetter               Int
+  feeContractBreach             Int
+  otherConditions               String
+  orderUrl                      String
+  applicableToCustomerType      CustomerType
+  alertChannel                  AlertChannel
+  cabinProduct                  Boolean          @default(false)
+  pricingType                   PricingType
+  publishingStatus              PublishingStatus
+  publishedAt                   DateTime
+  priceChangedAt                DateTime
+  purchasePricingType           PricingType
+  purchaseAddonPrice            Int
+  product                       Product          @relation(fields: [productId], references: [id])
+  productId                     Int
+  previousVersionId             Int?
+}

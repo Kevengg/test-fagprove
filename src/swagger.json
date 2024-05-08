@@ -1,0 +1,965 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ProductType": {
+				"type": "string",
+				"enum": [
+					"Spot",
+					"HourlySpot",
+					"Fixed",
+					"Variabl",
+					"Purchase",
+					"Plus",
+					"Other"
+				]
+			},
+			"PublishingStatus": {
+				"type": "string",
+				"enum": [
+					"Approved",
+					"Published",
+					"Rejected",
+					"Draft",
+					"Pending"
+				]
+			},
+			"PricingType": {
+				"type": "string",
+				"enum": [
+					"Spot",
+					"Kilowatt",
+					"Arrears",
+					"OnRequest"
+				]
+			},
+			"AlertChannel": {
+				"type": "string",
+				"enum": [
+					"Email",
+					"Sms",
+					"PostalLetter",
+					"Website",
+					"MyPage",
+					"Phone"
+				]
+			},
+			"CustomerType": {
+				"type": "string",
+				"enum": [
+					"Everyone",
+					"New",
+					"Existing",
+					"ExistingWithMembership",
+					"NewWithMembership",
+					"WithMembership",
+					"ExistingAndNew",
+					"ExistingAndNewWithMembership"
+				]
+			},
+			"TimeUnit": {
+				"type": "string",
+				"enum": [
+					"Day",
+					"Month",
+					"Year"
+				]
+			},
+			"FeeMandatoryType": {
+				"type": "string",
+				"enum": [
+					"None",
+					"ElectronicInvoice",
+					"DirectDebit",
+					"Both"
+				]
+			},
+			"conditions": {
+				"properties": {
+					"applicableToCustomerType": {
+						"$ref": "#/components/schemas/CustomerType"
+					},
+					"agreementTime": {
+						"type": "number",
+						"format": "double"
+					},
+					"agreementTimeUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"maxKwhPerYear": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"cabinProduct": {
+						"type": "boolean"
+					},
+					"otherConditions": {
+						"type": "string"
+					},
+					"feeMandatoryType": {
+						"$ref": "#/components/schemas/FeeMandatoryType"
+					}
+				},
+				"required": [
+					"applicableToCustomerType",
+					"agreementTime",
+					"agreementTimeUnit",
+					"maxKwhPerYear",
+					"cabinProduct",
+					"otherConditions",
+					"feeMandatoryType"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"BillingType": {
+				"type": "string",
+				"enum": [
+					"Before",
+					"After",
+					"Period"
+				]
+			},
+			"billing": {
+				"properties": {
+					"billingType": {
+						"$ref": "#/components/schemas/BillingType"
+					},
+					"frequency": {
+						"type": "number",
+						"format": "double"
+					},
+					"unit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					}
+				},
+				"required": [
+					"billingType",
+					"frequency",
+					"unit"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"fee": {
+				"properties": {
+					"monthlyFee": {
+						"type": "number",
+						"format": "double"
+					},
+					"postalLetterFee": {
+						"type": "number",
+						"format": "double"
+					},
+					"contractBreachFee": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"monthlyFee",
+					"postalLetterFee",
+					"contractBreachFee"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"currentPrice": {
+				"properties": {
+					"addonPrice": {
+						"type": "number",
+						"format": "double"
+					},
+					"purchaseKwPrice": {
+						"type": "number",
+						"format": "double"
+					},
+					"elCertificatePrice": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"addonPrice",
+					"purchaseKwPrice",
+					"elCertificatePrice"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"addonPrice": {
+				"properties": {
+					"minimumFixedFor": {
+						"type": "number",
+						"format": "double"
+					},
+					"minimumFixedForUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"purchaseAddonPrice": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"minimumFixedFor",
+					"minimumFixedForUnit",
+					"purchaseAddonPrice"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProductOutput": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"productType": {
+						"$ref": "#/components/schemas/ProductType"
+					},
+					"orderUrl": {
+						"type": "string",
+						"nullable": true
+					},
+					"organizationId": {
+						"type": "number",
+						"format": "double"
+					},
+					"publishingStatus": {
+						"$ref": "#/components/schemas/PublishingStatus"
+					},
+					"publishedAt": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"priceType": {
+						"$ref": "#/components/schemas/PricingType"
+					},
+					"purchasePriceType": {
+						"$ref": "#/components/schemas/PricingType"
+					},
+					"alertChannel": {
+						"$ref": "#/components/schemas/AlertChannel"
+					},
+					"conditions": {
+						"$ref": "#/components/schemas/conditions"
+					},
+					"billing": {
+						"$ref": "#/components/schemas/billing"
+					},
+					"fee": {
+						"$ref": "#/components/schemas/fee"
+					},
+					"currentPrice": {
+						"$ref": "#/components/schemas/currentPrice"
+					},
+					"addonPrice": {
+						"$ref": "#/components/schemas/addonPrice"
+					}
+				},
+				"required": [
+					"name",
+					"productType",
+					"orderUrl",
+					"organizationId",
+					"publishingStatus",
+					"publishedAt",
+					"priceType",
+					"purchasePriceType",
+					"alertChannel",
+					"conditions",
+					"billing",
+					"fee",
+					"currentPrice",
+					"addonPrice"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Product": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"name": {
+						"type": "string"
+					},
+					"deletedAt": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"productVersions": {
+						"items": {
+							"$ref": "#/components/schemas/ProductVersion"
+						},
+						"type": "array"
+					},
+					"company": {
+						"$ref": "#/components/schemas/Company"
+					}
+				},
+				"required": [
+					"id",
+					"createdAt",
+					"name",
+					"deletedAt",
+					"productVersions"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProductVersion": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"productId": {
+						"type": "number",
+						"format": "double"
+					},
+					"product": {
+						"$ref": "#/components/schemas/Product"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"agreementTime": {
+						"type": "number",
+						"format": "double"
+					},
+					"agreementTimeUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"billingFrequency": {
+						"type": "number",
+						"format": "double"
+					},
+					"billingFrequencyUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"addonPriceMinimumFixedFor": {
+						"type": "number",
+						"format": "double"
+					},
+					"addonPriceMinimumFixedForUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"productType": {
+						"$ref": "#/components/schemas/ProductType"
+					},
+					"billingType": {
+						"$ref": "#/components/schemas/BillingType"
+					},
+					"monthlyFee": {
+						"type": "number",
+						"format": "double"
+					},
+					"addonPrice": {
+						"type": "number",
+						"format": "double"
+					},
+					"elCertificatePrice": {
+						"type": "number",
+						"format": "double"
+					},
+					"maxKwhPerYear": {
+						"type": "number",
+						"format": "double"
+					},
+					"feeMandatoryType": {
+						"$ref": "#/components/schemas/FeeMandatoryType"
+					},
+					"feePostalLetter": {
+						"type": "number",
+						"format": "double"
+					},
+					"feeContractBreach": {
+						"type": "number",
+						"format": "double"
+					},
+					"otherConditions": {
+						"type": "string"
+					},
+					"orderUrl": {
+						"type": "string"
+					},
+					"applicableToCustomerType": {
+						"$ref": "#/components/schemas/CustomerType"
+					},
+					"alertChannel": {
+						"$ref": "#/components/schemas/AlertChannel"
+					},
+					"cabinProduct": {
+						"type": "boolean"
+					},
+					"pricingType": {
+						"$ref": "#/components/schemas/PricingType"
+					},
+					"publishingStatus": {
+						"$ref": "#/components/schemas/PublishingStatus"
+					},
+					"publishedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"priceChangedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"purchasePricingType": {
+						"$ref": "#/components/schemas/PricingType"
+					},
+					"purchaseAddonPrice": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"id",
+					"productId",
+					"createdAt",
+					"agreementTime",
+					"agreementTimeUnit",
+					"billingFrequency",
+					"billingFrequencyUnit",
+					"addonPriceMinimumFixedFor",
+					"addonPriceMinimumFixedForUnit",
+					"productType",
+					"billingType",
+					"monthlyFee",
+					"addonPrice",
+					"elCertificatePrice",
+					"maxKwhPerYear",
+					"feeMandatoryType",
+					"feePostalLetter",
+					"feeContractBreach",
+					"otherConditions",
+					"orderUrl",
+					"applicableToCustomerType",
+					"alertChannel",
+					"cabinProduct",
+					"pricingType",
+					"publishingStatus",
+					"publishedAt",
+					"priceChangedAt",
+					"purchasePricingType",
+					"purchaseAddonPrice"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Company": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					},
+					"number": {
+						"type": "number",
+						"format": "double"
+					},
+					"active": {
+						"type": "boolean"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"deletedAt": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"number",
+					"active",
+					"createdAt",
+					"deletedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Response": {
+				"properties": {
+					"status": {
+						"type": "number",
+						"format": "double"
+					},
+					"message": {
+						"type": "string"
+					},
+					"data": {}
+				},
+				"required": [
+					"status"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"NewProductBody": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"agreementTime": {
+						"type": "number",
+						"format": "double"
+					},
+					"agreementTimeUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"billingFrequency": {
+						"type": "number",
+						"format": "double"
+					},
+					"billingFrequencyUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"addonPriceMinimumFixedFor": {
+						"type": "number",
+						"format": "double"
+					},
+					"addonPriceMinimumFixedForUnit": {
+						"$ref": "#/components/schemas/TimeUnit"
+					},
+					"productType": {
+						"$ref": "#/components/schemas/ProductType"
+					},
+					"billingType": {
+						"$ref": "#/components/schemas/BillingType"
+					},
+					"monthlyFee": {
+						"type": "number",
+						"format": "double"
+					},
+					"addonPrice": {
+						"type": "number",
+						"format": "double"
+					},
+					"elCertificatePrice": {
+						"type": "number",
+						"format": "double"
+					},
+					"maxKwhPerYear": {
+						"type": "number",
+						"format": "double"
+					},
+					"feeMandatoryType": {
+						"$ref": "#/components/schemas/FeeMandatoryType"
+					},
+					"feePostalLetter": {
+						"type": "number",
+						"format": "double"
+					},
+					"feeContractBreach": {
+						"type": "number",
+						"format": "double"
+					},
+					"otherConditions": {
+						"type": "string"
+					},
+					"orderUrl": {
+						"type": "string"
+					},
+					"applicableToCustomerType": {
+						"$ref": "#/components/schemas/CustomerType"
+					},
+					"alertChannel": {
+						"$ref": "#/components/schemas/AlertChannel"
+					},
+					"cabinProduct": {
+						"type": "boolean"
+					},
+					"pricingType": {
+						"$ref": "#/components/schemas/PricingType"
+					},
+					"publishingStatus": {
+						"$ref": "#/components/schemas/PublishingStatus"
+					},
+					"publishedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"priceChangedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"purchasePricingType": {
+						"$ref": "#/components/schemas/PricingType"
+					},
+					"purchaseAddonPrice": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"name",
+					"agreementTime",
+					"agreementTimeUnit",
+					"billingFrequency",
+					"billingFrequencyUnit",
+					"addonPriceMinimumFixedFor",
+					"addonPriceMinimumFixedForUnit",
+					"productType",
+					"billingType",
+					"monthlyFee",
+					"addonPrice",
+					"elCertificatePrice",
+					"maxKwhPerYear",
+					"feeMandatoryType",
+					"feePostalLetter",
+					"feeContractBreach",
+					"otherConditions",
+					"orderUrl",
+					"applicableToCustomerType",
+					"alertChannel",
+					"cabinProduct",
+					"pricingType",
+					"publishingStatus",
+					"publishedAt",
+					"priceChangedAt",
+					"purchasePricingType",
+					"purchaseAddonPrice"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"newCompanyBody": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"number": {
+						"type": "number",
+						"format": "double"
+					},
+					"active": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"number",
+					"active"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "test-fagprove",
+		"version": "1.0.0",
+		"description": "løsning på testfagpøve oppgave 2 - Hovedoppgaven",
+		"license": {
+			"name": "MIT"
+		},
+		"contact": {
+			"name": "KevenG"
+		}
+	},
+	"paths": {
+		"/products": {
+			"get": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ProductOutput"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /products",
+				"summary": "Gets all active products",
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "includeInactive",
+						"required": false,
+						"schema": {
+							"default": false,
+							"type": "boolean"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"description": "PUT /product",
+				"summary": "Creates new product entry",
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/NewProductBody"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/products/{id}": {
+			"get": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Product"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /products/{id}",
+				"summary": "Gets product by provided id",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"delete": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"description": "DELETE /product",
+				"summary": "Deletes product entry with provided id",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/ping": {
+			"get": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"ping": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"ping"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /ping",
+				"summary": "Pings the service",
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/companies": {
+			"get": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Company"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /company/",
+				"summary": "Gets all active companies",
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "includeInactive",
+						"required": false,
+						"schema": {
+							"default": false,
+							"type": "boolean"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"description": "PUT /company",
+				"summary": "Creates new company entery",
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/newCompanyBody"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/companies/{id}": {
+			"get": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Company"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /company/{id}",
+				"summary": "Gets company by provided id",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"delete": {
+				"operationId": "",
+				"responses": {
+					"200": {
+						"description": "200 - success response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"description": "DELETE /company",
+				"summary": "Deletes company entery with provided id",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
