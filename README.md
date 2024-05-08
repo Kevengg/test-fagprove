@@ -77,7 +77,13 @@ npx prisma db push
 npm run build
 ```
 
-5. Kjør løsningen
+5. Putt data inn i databasen
+
+```bash
+npx prisma db seed
+```
+
+6. Kjør løsningen
 
 ```bash
 npm run start
@@ -106,6 +112,7 @@ Hvis ikke applikasjonen kjører, sjekk at porten er ledig og at ingen andre pros
 -   Run `docker compose up -d`
 -   Run `npx prisma db push`
 -   Run `npm run build`
+-   Run `npx prisma db seed`
 -   Run `npm run start`
 
 The application will now run on [http://localhost:3001](http://localhost:3001)
